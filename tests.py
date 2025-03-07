@@ -22,3 +22,14 @@ class TestBooksCollector:
 
     # напиши свои тесты ниже
     # чтобы тесты были независимыми в каждом из них создавай отдельный экземпляр класса BooksCollector()
+
+
+
+    def test_check_genre_detection(self):
+        self.collector = BooksCollector()
+
+        self.collector.add_new_book("Приключения Шерлока Холмса")
+        self.collector.set_book_genre("Приключения Шерлока Холмса", "Детективы")  # Устанавливаем жанр "Детективы"
+
+        # Проверяем, что жанр успешно установлен с использованием assert
+        assert self.collector.get_book_genre("Приключения Шерлока Холмса") == "Детективы"

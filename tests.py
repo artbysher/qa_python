@@ -59,11 +59,15 @@ class TestBooksCollector:
     ])
     def test_set_book_genre_check_invalid_genre(self, collector, name, invalid_genre):
         collector.add_new_book(name)
-        assert collector.get_book_genre(name) == ""
         collector.set_book_genre(name, invalid_genre)
         assert collector.get_book_genre(name) == ""
 
 # Тест 5
+    def test_get_book_genre_dictionary_when_two_books(self, collector):
+        collector.add_new_book('Гордость и предубеждение и зомби')
+        collector.add_new_book('Что делать, если ваш кот хочет вас убить')
+        assert collector.get_books_genre() == {'Гордость и предубеждение и зомби' : '','Что делать, если ваш кот хочет вас убить': '' }
+# Тест 5.1
 
     def test_get_books_with_specific_genre_simple_genres(self, collector):
 
